@@ -2,6 +2,7 @@ import React, { useState, useReducer } from 'react';
 
 //Component Imports
 import TodoItem from './TodoItem'
+import TodoForm from './TodoForm';
 //Import Reducer
 import { initialState, reducer } from '../reducers/todoReducer';
 
@@ -11,6 +12,7 @@ const TodoList = () => {
   return (
     <div>
       {/* TodoForm.js share state */}
+      <TodoForm />
       {/* Map over List to render TodoItem */}
       {todo.map(entry =>
         <TodoItem
