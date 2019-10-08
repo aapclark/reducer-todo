@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const TodoForm = () => {
+const TodoForm = () => {
 
 
   return (
@@ -10,3 +10,5 @@ export const TodoForm = () => {
     </div>
   )
 }
+
+export default TodoForm;
