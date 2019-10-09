@@ -42,7 +42,7 @@ export const reducer = (state, action) => {
             return { ...entry, completed: !entry.completed, timeCompleted: Date.now() }
 
           else {
-            return { ...entry, timeCompleted: '' }
+            return { ...entry, timeCompleted: entry.timeCompleted }
           }
         })
       }
