@@ -7,12 +7,26 @@ import TodoForm from './TodoForm';
 import { initialState, reducer } from '../reducers/todoReducer';
 
 const TodoList = () => {
+  const [formInput, setFormInput] = useState('Enter Task')
   const [{ todo }, dispatch] = useReducer(reducer, initialState)
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch({ type: 'ADD_ITEM', payload: formInput });
+    setFormInput('Enter Task');
+    // console.log(`${formInput} submitted`)
+  }
+
+
 
   return (
     <div>
       {/* TodoForm.js share state */}
-      <TodoForm />
+      <TodoForm
+        formInput={formInput}
+        handleSubmit={handleSubmit}
+        setFormInput={setFormInput}
+      />
       {/* Map over List to render TodoItem */}
       {todo.map(entry =>
         <TodoItem
@@ -20,6 +34,11 @@ const TodoList = () => {
           completed={entry.completed}
           key={entry.id}
           id={entry.id}
+          // completedBox={completedBox}
+          toggleCheck={() => {
+            dispatch({ type: 'TOGGLE_COMPLETED', payload: entry.id })
+            console.log(entry.id)
+          }}
         />
       )}
     </div>

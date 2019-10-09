@@ -1,27 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
+import { initialState, reducer } from '../reducers/todoReducer';
 
-const TodoForm = () => {
-  const [formInput, setFormInput] = useState('Enter Task')
-
+const TodoForm = (props) => {
+  // const [{ todo }, dispatch] = useReducer(reducer, initialState)
 
   const handleChamge = e => {
-    setFormInput(e.target.value)
+    props.setFormInput(e.target.value)
     // console.log(e.target.value)
     // console.log(formInput)
   }
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    setFormInput('Enter Task');
-    // console.log(`${formInput} submitted`)
-  }
+
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={props.handleSubmit}>
         <label>Task:
-        <input type='text' name='item' value={formInput} onChange={handleChamge} />
+        <input type='text' name='item' value={props.formInput} onChange={handleChamge} />
         </label>
         <input type='submit' value='Submit' />
       </form>
