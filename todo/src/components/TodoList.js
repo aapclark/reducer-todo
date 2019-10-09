@@ -17,7 +17,10 @@ const TodoList = () => {
     // console.log(`${formInput} submitted`)
   }
 
-
+  const clearCompleted = e => {
+    e.preventDefault();
+    dispatch({ type: 'CLEAR_COMPLETED' })
+  }
 
   return (
     <div>
@@ -41,6 +44,8 @@ const TodoList = () => {
           }}
         />
       )}
+      <button onClick={clearCompleted}>Clear Completed
+      </button>
     </div>
   )
 }
