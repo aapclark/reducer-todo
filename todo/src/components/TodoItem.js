@@ -1,10 +1,9 @@
-import React, { useState, useReducer } from 'react';
-
-import { initialState, reducer } from '../reducers/todoReducer';
+import React, { useState } from 'react';
+import moment from 'moment';
 
 
 const TodoItem = props => {
-  // const [{ todo }, dispatch] = useReducer(reducer, initialState)
+
   const [completedBox, setCompletedBox] = useState(false)
 
   const handleCheckboxChange = () => {
@@ -28,6 +27,9 @@ const TodoItem = props => {
           />
         </label>
       </form>
+      <div>
+        <p>Date Completed: {moment(props.dateCompleted).format('MMMM Do YYYY, h:mm a')}</p>
+      </div>
     </div>
   )
 }

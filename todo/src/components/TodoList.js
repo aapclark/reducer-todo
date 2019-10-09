@@ -37,6 +37,7 @@ const TodoList = () => {
           completed={entry.completed}
           key={entry.id}
           id={entry.id}
+          dateCompleted={entry.timeCompleted}
           // completedBox={completedBox}
           toggleCheck={() => {
             dispatch({ type: 'TOGGLE_COMPLETED', payload: entry.id })

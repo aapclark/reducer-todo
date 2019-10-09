@@ -1,17 +1,12 @@
-import React, { useState, useReducer } from 'react';
+import React from 'react';
 
-import { initialState, reducer } from '../reducers/todoReducer';
+
 
 const TodoForm = (props) => {
-  // const [{ todo }, dispatch] = useReducer(reducer, initialState)
 
   const handleChamge = e => {
     props.setFormInput(e.target.value)
-    // console.log(e.target.value)
-    // console.log(formInput)
   }
-
-
 
   return (
     <div>

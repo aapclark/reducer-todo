@@ -3,12 +3,15 @@ export const initialState = {
   todo: [{
     item: 'Learn about reducers',
     completed: false,
-    id: 3892987589
+    id: 3892987589,
+    timeCompleted: ''
   },
   {
     item: 'Learn about reducers again',
     completed: false,
-    id: 38929875895
+    id: 38929875895,
+    timeCompleted: ''
+
   }]
 
 }
@@ -21,7 +24,8 @@ export const reducer = (state, action) => {
       const newItem = {
         item: action.payload,
         completed: false,
-        id: Date.now()
+        id: Date.now(),
+        timeCompleted: ''
       }
       console.log(`case ADD_ITEM, ${state.todo}`)
       console.log(state.todo)
@@ -34,11 +38,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         todo: state.todo.map(entry => {
-
           if (entry.id === action.payload)
-            return { ...entry, completed: !entry.completed }
+            return { ...entry, completed: !entry.completed, timeCompleted: Date.now() }
+
           else {
-            return entry
+            return { ...entry, timeCompleted: '' }
           }
         })
       }
