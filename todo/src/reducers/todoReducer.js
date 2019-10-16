@@ -1,19 +1,6 @@
 
 export const initialState = {
-  todo: [{
-    item: 'Learn about reducers',
-    completed: false,
-    id: 3892987589,
-    timeCompleted: ''
-  },
-  {
-    item: 'Learn about reducers again',
-    completed: false,
-    id: 38929875895,
-    timeCompleted: ''
-
-  }]
-
+  todo: []
 }
 
 export const reducer = (state, action) => {
